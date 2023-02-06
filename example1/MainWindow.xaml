@@ -1,0 +1,54 @@
+﻿<Window x:Class="example1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+		xmlns:local="clr-namespace:example1"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Главное меню" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Grid Height="90" Background="White">
+            <Button Content="Товары" HorizontalAlignment="Left" Margin="84,10,0,0" VerticalAlignment="Top" Width="100" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderBrush="{x:Null}" Foreground="Black" Click="Button_Products"/>
+            <Button Content="Заказы" HorizontalAlignment="Left" Margin="324,10,0,0" VerticalAlignment="Top" Width="100" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="#DD000000" BorderBrush="{x:Null}" Click="Button_Orders"/>
+            <Button Content="Статистика" HorizontalAlignment="Left" Margin="564,10,0,0" VerticalAlignment="Top" Width="111" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderBrush="{x:Null}" Foreground="#DD000000" Click="Button_Stats"/>
+
+            <Button Content="Добавить товар" HorizontalAlignment="Left" Margin="58,58,0,0" VerticalAlignment="Top" Width="162" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderBrush="{x:Null}" Foreground="Black" Height="32" Click="Button_ProductAdd"/>
+            <Button Content="Добавить заказ" HorizontalAlignment="Left" Margin="308,58,0,0" VerticalAlignment="Top" Width="135" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="#DD000000" BorderBrush="{x:Null}" Height="32" Click="Button_OrderAdd"/>
+            <Button Content="Обновить статистику" HorizontalAlignment="Left" Margin="527,58,0,0" VerticalAlignment="Top" Width="175" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="#DD000000" BorderBrush="{x:Null}" Height="32" Click="Button_StatUpdate"/>
+        </Grid>
+        <Grid Height="285" Margin="20,20,19.6,20" VerticalAlignment="Top" Background="White">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="2" Opacity="0.5"/>
+            </Grid.Effect>
+            <DataGrid x:Name="MyData" Grid.Row="1" Margin="5,5,5,5" Visibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="#" Binding="{Binding IdProduct}" IsReadOnly="True" Width="45"/>
+                    <DataGridTextColumn x:Name="testq" Header="Название" Binding="{Binding NameProduct}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Стоимость" Binding="{Binding PriceProduct}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Количество" Binding="{Binding AmountProduct}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="MyDataOrders" Grid.Row="2" Margin="5,5,5,5" Visibility="Hidden"
+                      MouseDoubleClick="MyDataOrders_MouseDoubleClick" SelectedItem="{Binding Path=DataProduct}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="#" Binding="{Binding IdProduct}" IsReadOnly="True" Width="45"/>
+                    <DataGridTextColumn Header="Название" Binding="{Binding NameProduct}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Стоимость" Binding="{Binding PriceProduct}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Количество" Binding="{Binding AmountProduct}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Организация" Binding="{Binding FirmProduct}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="MyDataStats" Grid.Row="3" Margin="5,5,5,5" Visibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="#" Binding="{Binding IdProduct}" IsReadOnly="True" Width="45"/>
+                    <DataGridTextColumn Header="Месяц" Binding="{Binding MonthStat}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Год" Binding="{Binding YearStat}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Расходы" Binding="{Binding ExpenditureStat}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Прибыль" Binding="{Binding ProfitStat}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </StackPanel>
+</Window>

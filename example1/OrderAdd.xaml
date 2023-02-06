@@ -1,0 +1,24 @@
+﻿<Window x:Class="example1.OrderAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:example1"
+        mc:Ignorable="d"
+        Title="Оформление заказа" Height="400" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label x:Name="itsname" Content="Наименование продукта" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="NameProduct" HorizontalAlignment="Center" Margin="0,35,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+        
+        <Label x:Name="itsprice" Content="Цена продукта" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="PriceProduct" HorizontalAlignment="Center" Margin="0,95,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+        
+        <Label x:Name="itsamount" Content="Количество продукта" HorizontalAlignment="Center" Margin="0,134,0,0" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="AmountProduct" HorizontalAlignment="Center" Margin="0,155,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+
+        <Label x:Name="itsfirm" Content="Организация поставщика" HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="FirmProduct" HorizontalAlignment="Center" Margin="0,220,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+
+        <Button x:Name="button" Content="Добавить" HorizontalAlignment="Center" Margin="0,285,0,0" VerticalAlignment="Top" Width="178" Height="27" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Foreground="#DDFFFFFF" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Click="Add_Order"/>
+    </Grid>
+</Window>
